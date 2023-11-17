@@ -12,6 +12,7 @@ import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 
+@Testcontainers
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class DemoApplicationTests {
     private static final String ENDPOINT = "/profile";
@@ -27,12 +28,12 @@ public class DemoApplicationTests {
     public static GenericContainer<?> prodapp = new GenericContainer<>("prodapp:1.0")
             .withExposedPorts(8081);
 
-    @BeforeAll
-    public static void setUp() {
-        devapp.start();
-        prodapp.start();
-
-    }
+//    @BeforeAll
+//    public static void setUp() {
+//        devapp.start();
+//        prodapp.start();
+//
+//    }
 
     @Test
     void contextLoadsDev() {
